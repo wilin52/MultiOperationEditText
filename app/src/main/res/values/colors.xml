@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5C85BE</color>
+    <color name="colorPrimaryDark">#5C85BE</color>
+    <color name="colorAccent">#5C7BBE</color>
+    <color name="errorColor">#E74C3C</color>
+    <color name="forgetPressed">#AEAEAE</color>
+</resources>

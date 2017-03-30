@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MultiOperationEditTextSample</string>
+    <string name="action_settings">Settings</string>
+    <string name="forget_password">Forget</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="show_error_hint_without_using_default_error">Show Error Message</string>
+</resources>

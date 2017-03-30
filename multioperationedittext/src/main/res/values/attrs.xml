@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MultiOperationInputLayout">
+        <attr name="textColorError" format="color" />
+        <attr name="operationTextSize" format="integer"/>
+        <attr name="operationTextString" format="string|reference"/>
+        <attr name="operationTextColor" format="color|reference" />
+        <attr name="operationErrorColor" format="color" />
+        <attr name="hintTextAppearance" format="reference" />
+        <attr name="android:hint" />
+        <attr name="hintEnabled" format="boolean" />
+        <attr name="errorEnabled" format="boolean" />
+        <attr name="errorTextAppearance" format="reference" />
+        <attr name="counterEnabled" format="boolean" />
+        <attr name="counterMaxLength" format="integer" />
+        <attr name="counterTextAppearance" format="reference" />
+        <attr name="counterOverflowTextAppearance" format="reference" />
+        <attr name="android:textColorHint" />
+        <attr name="hintAnimationEnabled" format="boolean" />
+        <attr name="operationToggleDrawable" format="reference" />
+        <attr name="operationToggleContentDescription" format="string" />
+        <attr name="operationToggleTint" format="color" />
+        <attr name="imageButtonStyle" format="reference" />
+        <attr name="operationToggleTintMode">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+        </attr>
+        <attr name="operationType">
+            <enum name="editTextOnly" value="1" />
+            <enum name="editTextWithTextView" value="2" />
+            <enum name="editTextWithToggle" value="3" />
+        </attr>
+        <attr name="operationToggleType">
+            <enum name="password" value="1"/>
+            <enum name="other" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <style name="TextAppearance.Design.Counter" parent="TextAppearance.AppCompat.Caption" />
+
+    <style name="TextAppearance.Design.Counter.Overflow" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/design_error</item>
+    </style>
+
+    <style name="TextAppearance.Design.Error" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/design_error</item>
+    </style>
+
+    <style name="TextAppearance.Design.Hint" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?attr/colorControlActivated</item>
+    </style>
+
+    <style name="MultiOperationInputLayout">
+        <item name="hintTextAppearance">@style/TextAppearance.Design.Hint</item>
+        <item name="errorTextAppearance">@style/TextAppearance.Design.Error</item>
+        <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+        <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow
+        </item>
+        <item name="operationToggleDrawable">@drawable/design_password_eye_icon</item>
+        <item name="operationToggleTint">@color/design_tint_password_toggle</item>
+        <item name="operationToggleContentDescription">@string/password_toggle_content_description
+        </item>
+    </style>
+
+    <style name="MultiOperationInputLayout.Caption" parent="Base.TextAppearance.AppCompat.Caption" />
+
+</resources>
