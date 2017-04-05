@@ -133,6 +133,8 @@ public class MultiOperationInputLayout extends LinearLayout {
     private ColorStateList mErrorTextColor;
     private boolean showErrorWithoutErrorText;
 
+    private boolean stickyEditTextBackgroundColor;
+
     // Only used for testing
     private boolean mHintExpanded;
 
@@ -254,6 +256,8 @@ public class MultiOperationInputLayout extends LinearLayout {
         } else {
             mOperationText = "";
         }
+
+        stickyEditTextBackgroundColor = a.getBoolean(R.styleable.MultiOperationInputLayout_useStickyBackground,false);
 
         a.recycle();
 
@@ -926,6 +930,10 @@ public class MultiOperationInputLayout extends LinearLayout {
             editTextBackground.setColorFilter(
                     AppCompatDrawableManager.getPorterDuffColorFilter(
                             mCounterView.getCurrentTextColor(), PorterDuff.Mode.SRC_IN));
+        } else if(stickyEditTextBackgroundColor){
+            editTextBackground.setColorFilter(
+                    AppCompatDrawableManager.getPorterDuffColorFilter(
+                            mCollapsingTextHelper.getCollapsedTextColor().getDefaultColor(), PorterDuff.Mode.SRC_IN));
         } else {
             // Else reset the color filter and refresh the drawable state so that the
             // normal tint is used
@@ -1454,5 +1462,9 @@ public class MultiOperationInputLayout extends LinearLayout {
 
     public boolean isShowErrorWithoutErrorText() {
         return showErrorWithoutErrorText;
+    }
+
+    public void useStikyEditTextBackground(boolean use){
+        this.stickyEditTextBackgroundColor = use;
     }
 }
