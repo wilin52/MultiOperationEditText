@@ -122,6 +122,7 @@ public class MultiOperationInputLayout extends LinearLayout {
     private Drawable mOperationToggleDummyDrawable;
     private Drawable mOriginalEditTextEndDrawable;
 
+    private boolean mOperationToggleApplyTint;
     private ColorStateList mOperationToggleTintList;
     private boolean mHasOperationToggleTintList;
     private PorterDuff.Mode mOperationToggleTintMode;
@@ -200,6 +201,7 @@ public class MultiOperationInputLayout extends LinearLayout {
                     a.getResourceId(R.styleable.MultiOperationInputLayout_hintTextAppearance, 0));
         }
 
+        mOperationToggleApplyTint = a.getBoolean(R.styleable.MultiOperationInputLayout_operationToggleApplyTint,false);
         mErrorTextAppearance = a.getResourceId(R.styleable.MultiOperationInputLayout_errorTextAppearance, 0);
         final boolean errorEnabled = a.getBoolean(R.styleable.MultiOperationInputLayout_errorEnabled, false);
 
@@ -1264,7 +1266,7 @@ public class MultiOperationInputLayout extends LinearLayout {
     }
 
     private void applyOperationToggleTint() {
-        if (mOperationToggleDrawable != null
+        if (mOperationToggleApplyTint && mOperationToggleDrawable != null
                 && (mHasOperationToggleTintList || mHasOperationToggleTintMode)) {
             mOperationToggleDrawable = DrawableCompat.wrap(mOperationToggleDrawable).mutate();
 
