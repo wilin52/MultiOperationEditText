@@ -437,21 +437,6 @@ public class MultiOperationInputLayout extends LinearLayout {
 
         }
 
-        Drawable editTextBackground = mEditText.getBackground();
-        if (editTextBackground == null) {
-            return;
-        }
-
-        ensureBackgroundDrawableStateWorkaround();
-
-        if (android.support.v7.widget.DrawableUtils.canSafelyMutateDrawable(editTextBackground)) {
-            editTextBackground = editTextBackground.mutate();
-        }
-
-        // Set a color filter of the error color
-        editTextBackground.setColorFilter(
-                AppCompatDrawableManager.getPorterDuffColorFilter(
-                        mCollapsingTextHelper.getCollapsedTextColor().getDefaultColor(), PorterDuff.Mode.SRC_IN));
         invalidate();
     }
 
