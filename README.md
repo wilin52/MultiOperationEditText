@@ -5,9 +5,9 @@ Add the TextView and the Toggle to the right side.
 修改TextInputLayout，添加文字和按钮在右侧，以优化TextInputLayout的使用。
 
 
-!(https://github.com/wilin52/MultiOperationEditText/screenshot/show_error.png)
+!(https://github.com/wilin52/MultiOperationEditText/blob/master/screenshot/show_error.png)
 
-!(https://github.com/wilin52/MultiOperationEditText/screenshot/show_normal.png)
+!(https://github.com/wilin52/MultiOperationEditText/blob/master/screenshot/show_normal.png)
 
 How to use: 
 
