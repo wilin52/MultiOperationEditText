@@ -7,6 +7,7 @@ Add the TextView and the Toggle to the right side.
 !(https://github.com/wilin52/MultiOperationEditText/tree/master/screenshot/show_error.png)
 
 !(https://github.com/wilin52/MultiOperationEditText/tree/master/screenshot/show_normal.png)
+
 How to use: 
 
     <com.wilin.multioperationedittext.MultiOperationInputLayout
