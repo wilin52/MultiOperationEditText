@@ -116,6 +116,7 @@ public class MultiOperationInputLayout extends LinearLayout {
     private CharSequence mOperationText;
     private OnClickListener mOperationTextViewOnclickListener;
 
+    private boolean mOperationToggleChecked;
     private Drawable mOperationToggleDrawable;
     private CharSequence mOperationToggleContentDesc;
     private CheckableImageButton mOperationToggleView;
@@ -259,6 +260,7 @@ public class MultiOperationInputLayout extends LinearLayout {
             mOperationText = "";
         }
 
+        mOperationToggleChecked = a.getBoolean(R.styleable.MultiOperationInputLayout_operationToggleChecked,false);
         stickyEditTextBackgroundColor = a.getBoolean(R.styleable.MultiOperationInputLayout_useStickyBackground,false);
 
         a.recycle();
@@ -1172,6 +1174,7 @@ public class MultiOperationInputLayout extends LinearLayout {
                 } else {
                     mOperationToggleView.setOnClickListener(mMultiOperationToggleOnclickListener);
                 }
+                setOperationToggleChecked(mOperationToggleChecked);
             }
 
             if (mEditText != null && ViewCompat.getMinimumHeight(mEditText) <= 0) {
@@ -1179,7 +1182,6 @@ public class MultiOperationInputLayout extends LinearLayout {
             }
 
             mOperationToggleView.setVisibility(VISIBLE);
-            mOperationToggleView.setChecked(true);
 
             // We need to add a dummy drawable as the end compound drawable so that the text is
             // indented and doesn't display below the toggle view
@@ -1237,6 +1239,12 @@ public class MultiOperationInputLayout extends LinearLayout {
     public void setOperationToggleChecked(boolean checked){
         if(mOperationToggleView != null){
             mOperationToggleView.setChecked(checked);
+
+            if (passwordToggleEnable() && checked && hasPasswordTransformation()) {
+                mEditText.setTransformationMethod(null);
+            } else {
+                mEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
         }
     }
 
