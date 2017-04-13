@@ -7,9 +7,9 @@ Add the TextView and the Toggle to the right side.
 Screenshots
 -------------
 
-<img src="screenshots/show_error.png" alt="Screenshot"/> 
+<img src="screenshot/show_error.png" alt="Screenshot"/> 
 
-<img src="screenshots/show_normal.png" alt="Screenshot"/> 
+<img src="screenshot/show_normal.png" alt="Screenshot"/> 
 
 How to use: 
 
