@@ -4,10 +4,12 @@ Modify the TextInputLayout to support more operations to improve the usage of Te
 Add the TextView and the Toggle to the right side.
 修改TextInputLayout，添加文字和按钮在右侧，以优化TextInputLayout的使用。
 
+Screenshots
+-------------
 
-!(https://github.com/wilin52/MultiOperationEditText/blob/master/screenshot/show_error.png)
+<img src="screenshots/show_error.png" alt="Screenshot"/> 
 
-!(https://github.com/wilin52/MultiOperationEditText/blob/master/screenshot/show_normal.png)
+<img src="screenshots/show_normal.png" alt="Screenshot"/> 
 
 How to use: 
 
