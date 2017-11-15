@@ -46,9 +46,7 @@ import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.Space;
 import android.support.v4.widget.TextViewCompat;
-import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.AppCompatTextView;
-import android.support.v7.widget.TintTypedArray;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -67,9 +65,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wilin.multioperationedittext.textinput.AnimationUtils;
+import com.wilin.multioperationedittext.textinput.AppCompatDrawableManager;
 import com.wilin.multioperationedittext.textinput.CollapsingTextHelper;
 import com.wilin.multioperationedittext.textinput.DrawableUtils;
 import com.wilin.multioperationedittext.textinput.ThemeUtils;
+import com.wilin.multioperationedittext.textinput.TintTypedArray;
 import com.wilin.multioperationedittext.textinput.ValueAnimatorCompat;
 import com.wilin.multioperationedittext.textinput.ViewGroupUtils;
 import com.wilin.multioperationedittext.textinput.ViewUtils;
@@ -82,7 +82,7 @@ public class MultiOperationInputLayout extends LinearLayout {
 
     private static final int ANIMATION_DURATION = 200;
     private static final int INVALID_MAX_LENGTH = -1;
-    
+
     private final FrameLayout mInputFrame;
     EditText mEditText;
 
@@ -429,7 +429,7 @@ public class MultiOperationInputLayout extends LinearLayout {
     /**
      * 是否显示错误提示
      * show the error hint without using the default textView
-     * @param showErrorWithoutErrorText
+     * @param showErrorWithoutErrorText show the error or not
      */
     public void setShowErrorWithoutErrorText(boolean showErrorWithoutErrorText) {
         this.showErrorWithoutErrorText = showErrorWithoutErrorText;
@@ -451,7 +451,7 @@ public class MultiOperationInputLayout extends LinearLayout {
         }
 
         ensureBackgroundDrawableStateWorkaround();
-        if (android.support.v7.widget.DrawableUtils.canSafelyMutateDrawable(editTextBackground)) {
+        if (DrawableUtils.canSafelyMutateDrawable(editTextBackground)) {
             editTextBackground = editTextBackground.mutate();
         }
         // Set a color filter of the error color
@@ -926,7 +926,7 @@ public class MultiOperationInputLayout extends LinearLayout {
 
         ensureBackgroundDrawableStateWorkaround();
 
-        if (android.support.v7.widget.DrawableUtils.canSafelyMutateDrawable(editTextBackground)) {
+        if (DrawableUtils.canSafelyMutateDrawable(editTextBackground)) {
             editTextBackground = editTextBackground.mutate();
         }
 
