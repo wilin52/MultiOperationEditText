@@ -2,6 +2,7 @@ package com.wilin.multioperationedittextsample;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.MultiOperationInputLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,8 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.wilin.multioperationedittext.MultiOperationInputLayout;
 
 public class MainActivity extends AppCompatActivity {
     private Button changeColorBtn;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
-    private void initView(){
+    private void initView() {
         changeColorBtn = (Button) findViewById(R.id.show_error_btn);
         passwordInputLayout = (MultiOperationInputLayout) findViewById(R.id.password_input_layout);
         emailInputLayout = (MultiOperationInputLayout) findViewById(R.id.email_input_layout);
@@ -52,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
         emailInputLayout.setOperationTextViewOnclickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"Operation TextView Onclick",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Operation TextView Onclick", Toast.LENGTH_SHORT).show();
             }
         });
 
         passwordInputLayout.setOperationToggleOnclickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"Operation Toggle Onclick",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Operation Toggle Onclick", Toast.LENGTH_SHORT).show();
             }
         });
     }

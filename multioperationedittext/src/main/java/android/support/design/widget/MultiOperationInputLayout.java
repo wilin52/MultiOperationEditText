@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.wilin.multioperationedittext;
+package android.support.design.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
@@ -66,13 +67,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.wilin.multioperationedittext.textinput.AnimationUtils;
-import com.wilin.multioperationedittext.textinput.CollapsingTextHelper;
-import com.wilin.multioperationedittext.textinput.DrawableUtils;
-import com.wilin.multioperationedittext.textinput.ThemeUtils;
-import com.wilin.multioperationedittext.textinput.ValueAnimatorCompat;
-import com.wilin.multioperationedittext.textinput.ViewGroupUtils;
-import com.wilin.multioperationedittext.textinput.ViewUtils;
+import com.wilin.multioperationedittext.R;
 
 /**
  * copy from android.support.design
@@ -82,7 +77,7 @@ public class MultiOperationInputLayout extends LinearLayout {
 
     private static final int ANIMATION_DURATION = 200;
     private static final int INVALID_MAX_LENGTH = -1;
-    
+
     private final FrameLayout mInputFrame;
     EditText mEditText;
 
@@ -161,6 +156,7 @@ public class MultiOperationInputLayout extends LinearLayout {
         this(context, attrs, 0);
     }
 
+    @SuppressLint("RestrictedApi")
     public MultiOperationInputLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         // Can't call through to super(Context, AttributeSet, int) since it doesn't exist on API 10
         super(context, attrs);
@@ -210,7 +206,7 @@ public class MultiOperationInputLayout extends LinearLayout {
         mCounterOverflowTextAppearance = a.getResourceId(
                 R.styleable.MultiOperationInputLayout_counterOverflowTextAppearance, 0);
 
-        if(a.hasValue(R.styleable.MultiOperationInputLayout_operationToggleDrawable)){
+        if (a.hasValue(R.styleable.MultiOperationInputLayout_operationToggleDrawable)) {
             mOperationToggleDrawable = a.getDrawable(R.styleable.MultiOperationInputLayout_operationToggleDrawable);
         } else {
             mOperationToggleDrawable = getResources().getDrawable(R.drawable.design_password_eye_icon);
@@ -231,7 +227,7 @@ public class MultiOperationInputLayout extends LinearLayout {
 
         mOperationType = a.getInt(R.styleable.MultiOperationInputLayout_operationType, 1);
 
-        mOperationToggleType = a.getInt(R.styleable.MultiOperationInputLayout_operationToggleType,2);
+        mOperationToggleType = a.getInt(R.styleable.MultiOperationInputLayout_operationToggleType, 2);
 
         if (a.hasValue(R.styleable.MultiOperationInputLayout_operationErrorColor)) {
             mErrorTextColor = a.getColorStateList(R.styleable.MultiOperationInputLayout_operationErrorColor);
@@ -239,17 +235,17 @@ public class MultiOperationInputLayout extends LinearLayout {
             mErrorTextColor = mDefaultTextColor;
         }
 
-        if(a.hasValue(R.styleable.MultiOperationInputLayout_operationTextColor)){
+        if (a.hasValue(R.styleable.MultiOperationInputLayout_operationTextColor)) {
             mOperationTextViewColor = a.getColorStateList(R.styleable.MultiOperationInputLayout_operationTextColor);
         } else {
             mOperationTextViewColor = mDefaultTextColor;
         }
 
-        if(a.hasValue(R.styleable.MultiOperationInputLayout_operationTextSize)){
-            mOperationTextViewSize = a.getInteger(R.styleable.MultiOperationInputLayout_operationTextSize,mOperationTextViewSize);
+        if (a.hasValue(R.styleable.MultiOperationInputLayout_operationTextSize)) {
+            mOperationTextViewSize = a.getInteger(R.styleable.MultiOperationInputLayout_operationTextSize, mOperationTextViewSize);
         }
 
-        if(a.hasValue(R.styleable.MultiOperationInputLayout_operationTextString)){
+        if (a.hasValue(R.styleable.MultiOperationInputLayout_operationTextString)) {
             mOperationText = a.getText(R.styleable.MultiOperationInputLayout_operationTextString);
         } else {
             mOperationText = "";
@@ -380,7 +376,7 @@ public class MultiOperationInputLayout extends LinearLayout {
             adjustIndicatorPadding();
         }
 
-        if(isOperationToggleVisible()){
+        if (isOperationToggleVisible()) {
             updateOperationToggleView();
         } else {
             updateOperationTextView();
@@ -421,6 +417,7 @@ public class MultiOperationInputLayout extends LinearLayout {
     /**
      * 是否显示错误提示
      * show the error hint without using the default textView
+     *
      * @param showErrorWithoutErrorText
      */
     public void setShowErrorWithoutErrorText(boolean showErrorWithoutErrorText) {
@@ -892,6 +889,7 @@ public class MultiOperationInputLayout extends LinearLayout {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     private void updateEditTextBackground() {
         if (mEditText == null) {
             return;
@@ -911,12 +909,12 @@ public class MultiOperationInputLayout extends LinearLayout {
         /**
          * show the error hint
          */
-        if(showErrorWithoutErrorText){
+        if (showErrorWithoutErrorText) {
             // Set a color filter of the error color
             editTextBackground.setColorFilter(
                     AppCompatDrawableManager.getPorterDuffColorFilter(
                             mCollapsingTextHelper.getCollapsedTextColor().getDefaultColor(), PorterDuff.Mode.SRC_IN));
-        }else if (mErrorShown && mErrorView != null) {
+        } else if (mErrorShown && mErrorView != null) {
             // Set a color filter of the error color
             editTextBackground.setColorFilter(
                     AppCompatDrawableManager.getPorterDuffColorFilter(
@@ -1090,7 +1088,7 @@ public class MultiOperationInputLayout extends LinearLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    private void updateOperationTextView(){
+    private void updateOperationTextView() {
         if (mEditText == null) {
             // If there is no EditText, there is nothing to update
             return;
@@ -1133,11 +1131,12 @@ public class MultiOperationInputLayout extends LinearLayout {
                     mEditText.getPaddingTop(), mEditText.getPaddingRight(),
                     mEditText.getPaddingBottom());
             mOperationTextView.setVisibility(View.VISIBLE);
-        } else if(null != mOperationTextView){
+        } else if (null != mOperationTextView) {
             mOperationTextView.setVisibility(View.GONE);
         }
     }
 
+    @SuppressLint("RestrictedApi")
     private void updateOperationToggleView() {
         if (mEditText == null) {
             // If there is no EditText, there is nothing to update
@@ -1208,6 +1207,7 @@ public class MultiOperationInputLayout extends LinearLayout {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     void passwordVisibilityToggleRequested() {
         // Store the current cursor position
         final int selection = mEditText.getSelectionEnd();
@@ -1224,13 +1224,15 @@ public class MultiOperationInputLayout extends LinearLayout {
         mEditText.setSelection(selection);
     }
 
-    public void setOperationToggleChecked(boolean checked){
-        if(mOperationToggleView != null){
+    @SuppressLint("RestrictedApi")
+    public void setOperationToggleChecked(boolean checked) {
+        if (mOperationToggleView != null) {
             mOperationToggleView.setChecked(checked);
         }
     }
 
-    public boolean isOperationToggleChecked(){
+    @SuppressLint("RestrictedApi")
+    public boolean isOperationToggleChecked() {
         return (null != mOperationToggleView && mOperationToggleView.isChecked());
     }
 
@@ -1243,15 +1245,15 @@ public class MultiOperationInputLayout extends LinearLayout {
         return isOperationToggleVisible();
     }
 
-    private boolean passwordToggleEnable(){
+    private boolean passwordToggleEnable() {
         return mOperationToggleType == OPERATION_TOGGLE_TYPE_PASSWORD;
     }
 
-    private boolean isOperationToggleVisible(){
+    private boolean isOperationToggleVisible() {
         return mOperationType == OPERATION_TYPE_EDIT_TEXT_WITH_TOGGLE;
     }
 
-    private boolean shouldShowMultiOperationTextView(){
+    private boolean shouldShowMultiOperationTextView() {
         return mOperationType == OPERATION_TYPE_EDIT_TEXT_WITH_TEXT;
     }
 
@@ -1430,23 +1432,25 @@ public class MultiOperationInputLayout extends LinearLayout {
 
     /**
      * add the OnclickListener to the right toggle
+     *
      * @param onclickListener the listener
      */
     public void setOperationTextViewOnclickListener(OnClickListener onclickListener) {
         this.mOperationTextViewOnclickListener = onclickListener;
-        if(mOperationTextView != null){
+        if (mOperationTextView != null) {
             mOperationTextView.setOnClickListener(mOperationTextViewOnclickListener);
         }
     }
 
     /**
      * add the OnclickListener to the right textView
+     *
      * @param onclickListener the listener
      */
-    public void setOperationToggleOnclickListener(OnClickListener onclickListener){
-        if(!passwordToggleEnable()){
+    public void setOperationToggleOnclickListener(OnClickListener onclickListener) {
+        if (!passwordToggleEnable()) {
             this.mMultiOperationToggleOnclickListener = onclickListener;
-            if(mOperationToggleView != null){
+            if (mOperationToggleView != null) {
                 mOperationToggleView.setOnClickListener(mMultiOperationToggleOnclickListener);
             }
         }
