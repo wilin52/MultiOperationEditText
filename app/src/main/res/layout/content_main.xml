@@ -34,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        app:operationErrorColor="@color/errorColor"
         app:operationToggleDrawable="@drawable/design_password_eye_icon"
         app:operationToggleType="password"
         app:operationType="editTextWithToggle">

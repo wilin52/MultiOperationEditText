@@ -1,11 +1,10 @@
 package com.wilin.multioperationedittextsample;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.MultiOperationInputLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
         changeColorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                emailInputLayout.setShowErrorWithoutErrorText(!emailInputLayout.isShowErrorWithoutErrorText());
+                if (TextUtils.isEmpty(emailInputLayout.getEditText().getText())) {
+                    emailInputLayout.setShowErrorWithoutErrorText(!emailInputLayout.isShowErrorWithoutErrorText());
+                    return;
+                }
+
+                if (TextUtils.isEmpty(passwordInputLayout.getEditText().getText())) {
+                    passwordInputLayout.setShowErrorWithoutErrorText(!passwordInputLayout.isShowErrorWithoutErrorText());
+                }
             }
         });
 
