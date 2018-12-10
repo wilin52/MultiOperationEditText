@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MultiOperationInputLayout">
+        <attr name="operationToggleChecked" format="boolean"/>
+        <attr name="operationToggleApplyTint" format="boolean"/>
+        <attr name="useStickyBackground" format="boolean"/>
         <attr name="textColorError" format="color" />
         <attr name="operationTextSize" format="integer"/>
         <attr name="operationTextString" format="string|reference"/>
