@@ -7,7 +7,9 @@ Add the TextView and the Toggle to the right side.
 增加错误提示，删除原有错误文字，修改成以输入框背景作为错误提示。
 
 2018.12.11
+
 删除原有的代码，以修改包名为“android.support.design.widget”方式解决引用“android.support.design.widget”包内文件。减少不必要的新类。使用方法保持不变。
+本项目中的MultiOperationEditText 拷贝自TextInputLayout，基于25， 不会及时更新追踪 TextInputLayout 的更新。如有需要，请自信更新，作出相对应的修改。修改部分代码可以根据style 文件中的属性找到代码中相对应的函数。
 
 Screenshots
 -------------
