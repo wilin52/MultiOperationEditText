@@ -16,6 +16,7 @@
 
 package android.support.design.widget;
 
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -138,7 +139,7 @@ public class MultiOperationInputLayout extends LinearLayout {
     final CollapsingTextHelper mCollapsingTextHelper = new CollapsingTextHelper(this);
 
     private boolean mHintAnimationEnabled;
-    private ValueAnimatorCompat mAnimator;
+    private ValueAnimator mAnimator;
 
     private boolean mHasReconstructedEditTextBackground;
     private boolean mInDrawableStateChanged;
@@ -1394,13 +1395,13 @@ public class MultiOperationInputLayout extends LinearLayout {
             return;
         }
         if (mAnimator == null) {
-            mAnimator = ViewUtils.createAnimator();
+            mAnimator = new ValueAnimator();
             mAnimator.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
             mAnimator.setDuration(ANIMATION_DURATION);
-            mAnimator.addUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() {
+            mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
-                public void onAnimationUpdate(ValueAnimatorCompat animator) {
-                    mCollapsingTextHelper.setExpansionFraction(animator.getAnimatedFloatValue());
+                public void onAnimationUpdate(ValueAnimator animator) {
+                    mCollapsingTextHelper.setExpansionFraction((float) animator.getAnimatedValue());
                 }
             });
         }
