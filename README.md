@@ -2,7 +2,12 @@
 
 Modify the TextInputLayout to support more operations to improve the usage of TextInputLayout.
 Add the TextView and the Toggle to the right side.
+
 修改TextInputLayout，添加文字和按钮在右侧，以优化TextInputLayout的使用。
+增加错误提示，删除原有错误文字，修改成以输入框背景作为错误提示。
+
+2018.12.11
+删除原有的代码，以修改包名为“android.support.design.widget”方式解决引用“android.support.design.widget”包内文件。减少不必要的新类。使用方法保持不变。
 
 Screenshots
 -------------
